@@ -12,8 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var spaceButton: UIButton!
     
     @IBAction func tapSpaceButton(_ sender: UIButton) {
-        RemotePadRequests().tapKey(keyCode: "49")
-        print("Space tapped")
+        RemotePadRequests().setupWebSocket()
     }
     
     override func viewDidLoad() {

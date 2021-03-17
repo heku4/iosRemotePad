@@ -8,7 +8,7 @@
 import Foundation
 
 class RemotePadRequests {
-    func tapKey(keyCode: String) {
+    public func tapKey(keyCode: String) {
         let url = URL(string: "http://192.168.1.68:8080/\(keyCode)")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
@@ -38,11 +38,17 @@ class RemotePadRequests {
         task.resume()
      }
     
-    func connectWS() {
-        let url = URL(string: "ws://192.168.1.68:8080/echo")!
-        let request = URLRequest(url: url)
-        //let websocketTask = URLSessionWebSocketTask()
-        
-        
+    private var webSocketTask: URLSessionWebSocketTask?
+    
+    public func setupWebSocket() {
+        print("Trying to connect WS-server.")
+        let urlSession = URLSession(configuration: .default)
+        let websocketTask = URLSession.shared.webSocketTask(with: URL(string: "ws://127.0.0.1:8080/echo")!)
+        websocketTask.resume()
+        let openMessage = URLSessionWebSocketTask.Message.string("ws")
+        webSocketTask?.send(openMessage) { error in
+            if let error = error {("websocket couldn't send message: \(error.localizedDescription)")}
+        }
+        print("Message to WSserver sended.")
     }
 }
