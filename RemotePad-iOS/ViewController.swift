@@ -9,10 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var spaceButton: UIButton!
-    
     @IBAction func tapSpaceButton(_ sender: UIButton) {
         RemotePadRequests().setupWebSocket()
+        let keyboardViewController:KeyboardViewController = KeyboardViewController()
+        self.present(keyboardViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

@@ -9,7 +9,7 @@ import Foundation
 
 class RemotePadRequests {
     public func tapKey(keyCode: String) {
-        let url = URL(string: "http://192.168.1.68:8080/\(keyCode)")
+        let url = URL(string: "http://127.0.0.1:8080/\(keyCode)")
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
         var request = URLRequest(url: requestUrl)
