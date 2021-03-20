@@ -14,7 +14,7 @@ class KeyCollectionViewCell: UICollectionViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-            button.cornerRadius = 5// * button.bounds.size.width
+        button.cornerRadius = 5// * button.bounds.size.width
     }
     
     override init(frame: CGRect){
@@ -52,14 +52,6 @@ class KeyCollectionViewCell: UICollectionViewCell {
 
     func assignButtonTitle(_ title: String) {
         button.setTitle(title, for: .normal)
-    }
-    
-    func makeActive() {
-        button.backgroundColor = .darkGray
-    }
-    
-    func disactive() {
-        button.backgroundColor = .black
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -33,6 +33,16 @@ extension KeyboardViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width / 4, height: collectionView.frame.height / 3)
+        if mainButtons[indexPath.row] == " " || mainButtons[indexPath.row] == "command" {
+            return CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height / 3)
+        }
+        if mainButtons[indexPath.row] == "control" ||
+            mainButtons[indexPath.row] == "option" ||
+            mainButtons[indexPath.row] == "↩︎" ||
+            mainButtons[indexPath.row] == "fn"  {
+            return CGSize(width: collectionView.frame.width / 4, height: collectionView.frame.height / 3)
+        }
+        return CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height / 3)
     }
 }
+
