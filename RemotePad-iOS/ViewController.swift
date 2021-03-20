@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        view.backgroundColor = .darkGray
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }

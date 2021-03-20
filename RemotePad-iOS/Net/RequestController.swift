@@ -20,7 +20,7 @@ class RemotePadRequests {
             
             // Check if Error took place
             if let error = error {
-                print("Error took place \(error)")
+                print("Error took place: \(error)")
                 return
             }
             
