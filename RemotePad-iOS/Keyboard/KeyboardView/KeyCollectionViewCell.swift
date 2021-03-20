@@ -14,20 +14,15 @@ class KeyCollectionViewCell: UICollectionViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        if button.titleLabel?.text == "0" {
-            button.cornerRadius = 7
-        } else {
-            button.cornerRadius = 0.5 * button.bounds.size.width
-        }
+            button.cornerRadius = 5// * button.bounds.size.width
     }
     
     override init(frame: CGRect){
         super.init(frame: frame) //?
         
-        self.backgroundColor = .black
-        button.backgroundColor = .brown
-        button.addTarget(self, action: #selector(process), for: .touchUpInside)
+        self.backgroundColor = .darkGray
+        button.backgroundColor = .black
+        button.addTarget(self, action: #selector(tapKey), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(button)
         
@@ -38,19 +33,20 @@ class KeyCollectionViewCell: UICollectionViewCell {
         
     }
     
-    @IBAction func process() {
-        UIView.animate(withDuration: 0.25, animations: {
+    @IBAction func tapKey() {
+        UIView.animate(withDuration: 0.35, animations: {
             self.button.backgroundColor = .black
-            self.button.backgroundColor = .brown
+            self.button.backgroundColor = .darkGray
+            self.button.backgroundColor = .black
         })
         guard let buttonTitle = button.titleLabel?.text else {return}
         switch buttonTitle {
-        case "space":
+        case " ": // space
             delegate?.tapButton("49")
-        case "enter":
-            delegate?.tapButton("46")
+        case "fn":
+            delegate?.tapButton("63")
         default:
-            delegate?.tapButton("49")
+            break
         }
     }
 
@@ -59,17 +55,16 @@ class KeyCollectionViewCell: UICollectionViewCell {
     }
     
     func makeActive() {
-        button.backgroundColor = .black
+        button.backgroundColor = .darkGray
     }
     
     func disactive() {
-        button.backgroundColor = .brown
+        button.backgroundColor = .black
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
-
 }
 
 extension UIView {

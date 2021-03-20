@@ -26,6 +26,7 @@
                                 </state>
                                 <connections>
                                     <action selector="tapSpaceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VXB-Rd-Um6"/>
+                                    <segue destination="3Qa-Fz-kjw" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="hfo-aA-ssd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -47,10 +48,11 @@
                         <viewLayoutGuide key="safeArea" id="r3h-J5-dAh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2GF-W4-HcG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fr-tn-O0e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="651" y="93"/>
+            <point key="canvasLocation" x="780" y="93"/>
         </scene>
     </scenes>
     <resources>

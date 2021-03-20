@@ -17,25 +17,29 @@ class KeyboardViewController: UIViewController {
         return collectionView
     }()
     
-    var activeCell: KeyCollectionViewCell?
+   // var activeCell: KeyCollectionViewCell?
       
-    let elements: [String] = ["Space", "command", "option", "control", "fn", "shift", "capsLock", "tab", "enter", "backspace"]
+    let allButtons: [String] = ["Space", "command", "option", "control", "fn", "shift", "capsLock", "tab", "enter", "backspace"]
+                    // tab-capslock-backspace / fn-control-option-enter / cmd-space-shit
+    let mainButtons = ["⇥", "↥", "⬅︎", "fn", "control", "option", "↩︎", "command", " ", "⇧"]
+ 
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+ 
+    override func loadView() {
+        super.loadView()        
+        layoutViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.darkGray
+        collectionView.delegate = self
+        collectionView.dataSource = self        
+        collectionView.register(KeyCollectionViewCell.self, forCellWithReuseIdentifier: "custom")
     }
-    */
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView.reloadData()
+    }
 
 }
