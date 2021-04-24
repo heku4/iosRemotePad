@@ -8,8 +8,9 @@
 import Foundation
 
 class RemotePadRequests {
-    public func tapKey(keyCode: String) {
+    public func tapKey(keyCode: String) -> Bool {
         let url = URL(string: "http://127.0.0.1:8080/\(keyCode)")
+        var noError = true;
         guard let requestUrl = url else { fatalError() }
         // Create URL Request
         var request = URLRequest(url: requestUrl)
@@ -21,6 +22,7 @@ class RemotePadRequests {
             // Check if Error took place
             if let error = error {
                 print("Error took place: \(error)")
+                noError = false
                 return
             }
             
@@ -33,9 +35,9 @@ class RemotePadRequests {
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
                 print("Response data string:\n \(dataString)")
             }
-            
         }
         task.resume()
+        return noError
      }
     
     private var webSocketTask: URLSessionWebSocketTask?

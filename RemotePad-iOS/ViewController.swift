@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBAction func tapSpaceButton(_ sender: UIButton) {
+    @IBAction func tapConnectButton(_ sender: UIButton) {
         RemotePadRequests().setupWebSocket()
         let keyboardViewController:KeyboardViewController = KeyboardViewController()
         self.present(keyboardViewController, animated: true, completion: nil)

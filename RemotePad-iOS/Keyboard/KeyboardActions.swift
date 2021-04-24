@@ -14,7 +14,12 @@ protocol KeyboardActions: class {
 extension KeyboardViewController: KeyboardActions
 {
     func tapButton(_ keyCode: String) {
-        RemotePadRequests().tapKey(keyCode: keyCode)
+        let requestState = RemotePadRequests().tapKey(keyCode: keyCode)
+        if requestState == false {
+            var popUpWindow: PopUpWindow!
+            popUpWindow = PopUpWindow(title: "Error", text: "Sorry!", buttontext: "OK")
+            self.present(popUpWindow, animated: true, completion: nil)
+        }
     }
 }
 

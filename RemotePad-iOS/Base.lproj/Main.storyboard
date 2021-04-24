@@ -29,7 +29,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="10"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="tapSpaceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VXB-Rd-Um6"/>
                                     <segue destination="3Qa-Fz-kjw" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="hfo-aA-ssd"/>
                                 </connections>
                             </button>
